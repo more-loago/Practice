@@ -2,15 +2,20 @@
 #include <stdlib.h>
 
 
-int main() {
+/*int factorialC(int factorial) {
 	
-printf("Finding the factorial \n\n");
-
 	int num, i;
 	unsigned long long factorial = 1;
 	
-	printf("Enter a positive integer: \n");
-	scanf("%d", &num);
+	for (i = 1; i <= num; ++i) {
+		factorial *= i;
+	}	
+	return 0;
+}
+
+int main() {
+	
+	int num; 
 	
 	if (num < 0) {
 		do {
@@ -18,12 +23,37 @@ printf("Finding the factorial \n\n");
 			printf("Enter a positive integer \n");
 			scanf("%d", &num);
 		} while (num < 0);
-	}
+	}	
+
+	printf("Factorial = %d", factorialC(factorial));
 	
-	for (i = 1; i <= num; ++i) {
-		factorial *= i;
-	}
-	printf("Factorial = %llu", factorial);
+}*/
+
+unsigned long long factorial(int n) {
 	
-	return 0;
+	if (n == 0) {
+		
+		return 1;
+	}
+	else {
+		return n * factorial(n - 1);
+	}
+}
+
+int main() {
+	
+	int n;
+	
+	printf("Enter your positive number: ");
+	scanf("%llu", &n);
+	
+	if (n < 0) {
+		do {
+			printf("Only positive integers accepted\n");
+			printf("Enter a positive integer \n");
+			scanf("%d", &n);
+		} while (n < 0);
+	}	
+	
+	printf("Factorial = %d", factorial(n));
 }
